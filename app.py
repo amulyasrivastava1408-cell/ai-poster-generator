@@ -282,7 +282,7 @@ def build_poster(background_bytes: bytes, caption: str, font_path: Path) -> Imag
         mask_draw.line([(0, row), (plate.size[0], row)], fill=alpha)
     plate.putalpha(mask)
 
-    image.alpha_composite(plate, dest=(0, box_top))
+    image.alpha_composite(plate, dest=(0, int(box_top)))
     draw = ImageDraw.Draw(image)
 
     region = image.convert("RGB").crop(text_box).convert("L")
